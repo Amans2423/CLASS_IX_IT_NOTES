@@ -108,6 +108,39 @@
       .actions { padding: 14px 14px 18px; flex-direction: column; }
       .preview iframe { height: 350px; }
     }
+
+    /* Full-screen instruction popup overlay */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 99999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 18px; background: rgba(12, 20, 42, .78);
+      backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+    }
+    .modal {
+      width: min(590px, 100%); max-height: 92vh; overflow-y: auto;
+      background: #fff; color: #172033; border-radius: 22px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.32);
+      padding: clamp(23px, 5vw, 36px);
+      animation: popupIn .24s ease-out;
+    }
+    @keyframes popupIn {
+      from { opacity: 0; transform: translateY(14px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-badge { display: inline-block; background: #e9efff; color: #2444b5; padding: 7px 13px; border-radius: 999px; font-weight: 800; font-size: .9rem; }
+    .modal h2 { margin: 16px 0 9px; font-size: clamp(1.7rem, 5vw, 2.15rem); line-height: 1.2; }
+    .modal-intro, .modal-footer { color: #586579; font-size: 1.05rem; }
+    .modal-intro { margin: 0 0 18px; }
+    .deadline-list { display: grid; gap: 12px; margin: 18px 0 22px; }
+    .deadline { display: flex; align-items: flex-start; gap: 13px; padding: 15px; background: #f7f9ff; border: 1px solid #e1e8ff; border-radius: 13px; }
+    .deadline-number { flex: 0 0 44px; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: #3157d5; color: #fff; font-weight: 800; font-size: 1.05rem; }
+    .deadline strong { display: block; font-size: 1.05rem; margin-bottom: 3px; }
+    .deadline span { color: #586579; font-size: 1rem; }
+    .modal-footer { margin: 0 0 22px; }
+    .modal .btn { width: 100%; min-height: 50px; border: 0; cursor: pointer; font: inherit; font-weight: 750; font-size: 1.05rem; }
+    body.modal-open { overflow: hidden; }
+    @media (max-width: 430px) { .modal { border-radius: 18px; padding: 22px 18px; } .deadline { padding: 12px; } }
+
   </style>
 </head>
 <body class="modal-open">
@@ -121,7 +154,7 @@
         <div class="deadline"><div class="deadline-number">04</div><div><strong>Unit 4 – Electronic Spreadsheet</strong><span>Complete this chapter by <b>15 November</b>.</span></div></div>
         <div class="deadline"><div class="deadline-number">05</div><div><strong>Unit 5 – Digital Presentation</strong><span>Complete this chapter by <b>20 November</b>.</span></div></div>
       </div>
-      <p class="modal-footer">Take it one chapter at a time, revise carefully, and do your best!</p>
+      <p class="modal-footer">Take it one chapter at a time, Complete your Notebook!</p>
       <button class="btn btn-primary" type="button" onclick="closeInstructions()">Okay, Let's Start ✓</button>
     </div>
   </div>
