@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Computer subject study notes. View and download PDF notes for Digital Presentation and Electronic Spreadsheet.">
+  <meta name="description" content="Computer subject study notes. View and download PDF notes for Electronic Spreadsheet and Digital Presentation.">
   <title>Computer Notes | Study Resources</title>
   <style>
     :root {
       --bg: #f4f7fb;
       --card: #ffffff;
       --text: #172033;
-      --muted: #667085;
+      --muted: #586579;
       --primary: #3157d5;
       --primary-dark: #2444b5;
       --border: #e4e9f2;
@@ -22,10 +22,11 @@
       font-family: "Segoe UI", Arial, sans-serif;
       background: radial-gradient(circle at top right, #e2eaff 0, transparent 34%), var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
+      font-size: 17px;
     }
     .hero {
-      padding: 54px 20px 42px;
+      padding: 58px 20px 46px;
       text-align: center;
       color: white;
       background: linear-gradient(135deg, #172554, #3157d5 65%, #647cf0);
@@ -35,7 +36,7 @@
       padding: 5px 12px;
       border: 1px solid rgba(255,255,255,.35);
       border-radius: 999px;
-      font-size: .82rem;
+      font-size: .9rem;
       letter-spacing: .04em;
       background: rgba(255,255,255,.12);
     }
@@ -43,7 +44,7 @@
     .hero p { margin: 0 auto; max-width: 650px; color: #e8edff; }
     main { width: min(1050px, calc(100% - 32px)); margin: 34px auto 54px; }
     .section-heading { margin-bottom: 18px; }
-    .section-heading h2 { margin: 0 0 4px; font-size: 1.55rem; }
+    .section-heading h2 { margin: 0 0 4px; font-size: clamp(1.55rem, 3vw, 1.9rem); }
     .section-heading p { margin: 0; color: var(--muted); }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
     .card {
@@ -57,13 +58,13 @@
       min-width: 0;
     }
     .card-top {
-      padding: 24px 24px 18px;
+      padding: 25px 24px 20px;
       display: flex;
       align-items: center;
       gap: 16px;
     }
     .pdf-icon {
-      width: 62px; height: 72px; flex: 0 0 62px;
+      width: 68px; height: 78px; flex: 0 0 68px;
       border-radius: 9px;
       display: grid; place-items: center;
       background: #fff0f0;
@@ -74,16 +75,16 @@
     }
     .pdf-icon::before { content: "PDF"; border: 2px solid currentColor; border-radius: 5px; padding: 5px 4px; }
     .pdf-icon::after { content: ""; position: absolute; top: 0; right: 0; border-top: 15px solid #ffd0d0; border-left: 15px solid transparent; }
-    .unit { color: var(--primary); font-size: .78rem; text-transform: uppercase; font-weight: 800; letter-spacing: .08em; }
-    h3 { margin: 3px 0 0; font-size: 1.18rem; line-height: 1.35; }
+    .unit { color: var(--primary); font-size: .88rem; text-transform: uppercase; font-weight: 800; letter-spacing: .08em; }
+    h3 { margin: 3px 0 0; font-size: clamp(1.18rem, 2vw, 1.4rem); line-height: 1.4; }
     .preview { border-top: 1px solid var(--border); background: #eef2f8; padding: 12px; }
-    .preview iframe { display: block; width: 100%; height: 340px; border: 1px solid #d9e0eb; border-radius: 10px; background: white; }
-    .preview-note { margin: 8px 4px 0; font-size: .82rem; color: var(--muted); }
+    .preview iframe { display: block; width: 100%; height: 380px; border: 1px solid #d9e0eb; border-radius: 10px; background: white; }
+    .preview-note { margin: 8px 4px 0; font-size: .9rem; color: var(--muted); }
     .actions { display: flex; gap: 10px; padding: 18px 20px 22px; margin-top: auto; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      text-decoration: none; border-radius: 10px; padding: 11px 14px;
-      font-weight: 700; font-size: .92rem; flex: 1; text-align: center;
+      text-decoration: none; border-radius: 10px; padding: 13px 15px;
+      font-weight: 750; font-size: 1rem; min-height: 48px; flex: 1; text-align: center;
       transition: transform .15s ease, background .15s ease;
     }
     .btn:hover { transform: translateY(-1px); }
@@ -92,23 +93,38 @@
     .btn-secondary { color: var(--text); border: 1px solid var(--border); background: white; }
     .instructions {
       margin-top: 26px; padding: 18px 20px; background: #fff;
-      border: 1px solid var(--border); border-radius: 14px; color: var(--muted); font-size: .92rem;
+      border: 1px solid var(--border); border-radius: 14px; color: var(--muted); font-size: 1rem;
     }
     .instructions strong { color: var(--text); }
-    footer { text-align: center; padding: 22px 16px; color: var(--muted); font-size: .88rem; }
-    @media (max-width: 760px) {
+    footer { text-align: center; padding: 22px 16px; color: var(--muted); font-size: .95rem; }
+    @media (max-width: 780px) {
       .grid { grid-template-columns: 1fr; }
-      .hero { padding: 42px 18px 34px; }
-      .preview iframe { height: 380px; }
+      .hero { padding: 46px 18px 38px; }
+      main { width: min(650px, calc(100% - 26px)); margin-top: 28px; }
+      .preview iframe { height: 430px; }
     }
-    @media (max-width: 420px) {
-      .card-top { padding: 20px 16px 16px; gap: 12px; }
+    @media (max-width: 430px) {
+      .card-top { padding: 20px 16px 17px; gap: 13px; }
       .actions { padding: 14px 14px 18px; flex-direction: column; }
-      .preview iframe { height: 320px; }
+      .preview iframe { height: 350px; }
     }
   </style>
 </head>
-<body>
+<body class="modal-open">
+
+  <div class="modal-backdrop" id="instructionPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="modal">
+      <span class="modal-badge">📘 IMPORTANT INSTRUCTIONS</span>
+      <h2 id="popupTitle">There Are 2 Units</h2>
+      <p class="modal-intro">Don't worry! You will get enough time to complete both units. Please follow the deadlines below.</p>
+      <div class="deadline-list">
+        <div class="deadline"><div class="deadline-number">04</div><div><strong>Unit 4 – Electronic Spreadsheet</strong><span>Complete this chapter by <b>15 November</b>.</span></div></div>
+        <div class="deadline"><div class="deadline-number">05</div><div><strong>Unit 5 – Digital Presentation</strong><span>Complete this chapter by <b>20 November</b>.</span></div></div>
+      </div>
+      <p class="modal-footer">Take it one chapter at a time, revise carefully, and do your best!</p>
+      <button class="btn btn-primary" type="button" onclick="closeInstructions()">Okay, Let's Start ✓</button>
+    </div>
+  </div>
   <header class="hero">
     <span class="eyebrow">COMPUTER SUBJECT • STUDY MATERIAL</span>
     <h1>Notes &amp; Learning Resources</h1>
@@ -120,7 +136,9 @@
       <h2>📚 Available Notes</h2>
       <p>Select a chapter to preview it in your browser or save a copy to your device.</p>
     </div>
-<article class="card">
+
+    <section class="grid" aria-label="PDF notes">
+      <article class="card">
         <div class="card-top">
           <div class="pdf-icon" aria-hidden="true"></div>
           <div>
@@ -139,10 +157,6 @@
           <a class="btn btn-secondary" href="Unit%204%20-%20Electronic%20Spreadsheet%20Notes.pdf" download>↓ Download</a>
         </div>
       </article>
-    </section>
-
-
-    <section class="grid" aria-label="PDF notes">
       <article class="card">
         <div class="card-top">
           <div class="pdf-icon" aria-hidden="true"></div>
@@ -163,10 +177,18 @@
         </div>
       </article>
 
-          <div class="instructions">
+    </section>
+
+    <div class="instructions">
       <strong>For students:</strong> You can read the notes on this page. To keep a copy, choose <strong>Download</strong>.
     </div>
   </main>
   <footer>Study regularly • Revise thoroughly • Do your best!</footer>
+  <script>
+    function closeInstructions() {
+      document.getElementById('instructionPopup').style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+  </script>
 </body>
 </html>
